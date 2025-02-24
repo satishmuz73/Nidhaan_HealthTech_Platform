@@ -1,4 +1,6 @@
-"#### Nidhaan HealthTech Platform" 
+#### Nidhaan HealthTech Platform
+
+
 # User Authentication & Authorization System
 
 This project implements a user authentication and authorization system using Node.js and Express.js. It includes JWT authentication, bcrypt.js for password hashing, role-based access control (Admin, Doctor, Patient, Pharmacy, Trainer), and email/OTP verification using SMTP.
