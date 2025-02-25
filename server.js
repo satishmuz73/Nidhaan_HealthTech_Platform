@@ -17,7 +17,7 @@ mongoose.connect(process.env.MONGODB_URL, { useNewUrlParser: true, useUnifiedTop
   .catch(err => console.error("MongoDB connection error:", err));
 
 
-// Routes
+// Routers
 app.get('/', (req, res) => {
   res.send('<h1>Nidhaan Platform API</h1>');
 });
