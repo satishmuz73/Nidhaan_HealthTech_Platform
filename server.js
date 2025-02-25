@@ -18,11 +18,12 @@ mongoose.connect(process.env.MONGODB_URL, { useNewUrlParser: true, useUnifiedTop
   .catch(err => console.error("MongoDB connection error:", err));
 
 
-// Routers
+ // Routers 
 app.get('/', (req, res) => {
   res.send('<h1>Nidhaan Platform API</h1>');
 });
 
+// Routers
 app.use("/api/auth", authRoutes);
 app.use('/api', medicineRouter);
 app.use('/api', orderRouter);
