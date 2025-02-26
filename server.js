@@ -8,6 +8,9 @@ const medicineRouter = require('./routers/medicineRouter');
 const orderRouter = require('./routers/orderRouter');
 const cartRouter = require('./routers/cartRouter');
 
+const pharmacyRoutes = require('./routers/pharmacyRoutes');
+const deliveryRoutes = require('./routers/deliveryRoutes');
+const errorMiddleware = require('./middleware/errorMiddleware')
 
 const app = express();
 app.use(express.json());
@@ -28,6 +31,9 @@ app.use("/api/auth", authRoutes);
 app.use('/api', medicineRouter);
 app.use('/api', orderRouter);
 app.use('/api', cartRouter);
+
+app.use('/api/pharmacies', pharmacyRoutes);
+app.use('/api/deliveries', deliveryRoutes);
 
 const PORT = process.env.PORT || 8000;
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
