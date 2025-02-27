@@ -12,6 +12,13 @@ const pharmacyRoutes = require('./routers/pharmacyRoutes');
 const deliveryRoutes = require('./routers/deliveryRoutes');
 const errorMiddleware = require('./middleware/errorMiddleware')
 
+
+// Import routes for Gym & Yoga Services
+const trainerRoutes = require("./routers/GYM&YogaRouters/trainerRoutes");
+const classRoutes = require("./routers/GYM&YogaRouters/classRoutes");
+const membershipRoutes = require("./routers/GYM&YogaRouters/membershipRoutes");
+const virtualClassRoutes = require("./routers/GYM&YogaRouters/virtualClassRoutes");
+
 const app = express();
 app.use(express.json());
 app.use(cors());
@@ -34,6 +41,11 @@ app.use('/api', cartRouter);
 
 app.use('/api/pharmacies', pharmacyRoutes);
 app.use('/api/deliveries', deliveryRoutes);
+
+app.use("/api/trainers", trainerRoutes);
+app.use("/api/classes", classRoutes);
+app.use("/api/memberships", membershipRoutes);
+app.use("/api/virtual-classes", virtualClassRoutes);
 
 const PORT = process.env.PORT || 8000;
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
