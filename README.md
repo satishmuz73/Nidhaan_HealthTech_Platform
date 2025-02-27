@@ -147,3 +147,67 @@ This project implements a user authentication and authorization system using Nod
 - **Get Orders**: `GET /api/orders`
 
 
+
+# Gym & Yoga Services API
+
+This project provides APIs for managing Gym & Yoga services including trainer bookings, class schedules, membership management, and virtual class interactions.
+
+## Features
+
+- **Trainer Management**: Create and manage trainers, their specializations, and available times.
+- **Class Scheduling**: Schedule physical gym and yoga classes with trainers.
+- **Membership Management**: Create and manage user memberships with validity periods and types.
+- **Virtual Classes**: Schedule and manage virtual classes, including providing video links for sessions.
+- **Authentication**: Token-based user authentication for access to private routes.
+
+
+## API Endpoints
+
+### 1. **Trainer Routes** (`/api/trainers`)
+- `GET /` - Get all trainers
+- `POST /` - Add a new trainer
+
+### 2. **Class Routes** (`/api/classes`)
+- `GET /` - Get all scheduled classes
+- `POST /` - Schedule a new class
+
+### 3. **Membership Routes** (`/api/memberships`)
+- `GET /` - Get all memberships
+- `POST /` - Create a new membership
+
+### 4. **Virtual Class Routes** (`/api/virtualClasses`)
+- `GET /` - Get all virtual classes
+- `POST /` - Schedule a new virtual class
+
+## Authentication
+
+- All routes require a valid JWT token for access (except the trainer registration endpoint).
+- To authenticate, include the token in the `x-auth-token` header for protected routes.
+
+## Error Handling
+
+- If any required field is missing in requests, the API will return a `400` error with a message indicating the missing field.
+- Server errors will return a `500` error with the message "Internal Server Error."
+
+## Example Requests
+
+### 1. **Add a Trainer** (POST `/api/trainers`)
+```json
+curl -X POST http://localhost:5000/api/trainers -H "Content-Type: application/json" -d '{
+    "name": "John Doe",
+    "specialization": "Yoga",
+    "availableTimes": [{"date": "2025-02-28", "time": "10:00 AM"}]
+}'
+```
+### 2. **Schedule a Class** (POST `/api/classes`)
+```json
+curl -X POST http://localhost:5000/api/classes -H "Content-Type: application/json" -d '{
+    "instructorId": "609a2bcfcf3f1a2ff434572d",
+    "className": "Yoga Beginner",
+    "dateTime": "2025-02-28T10:00:00Z"
+}'
+```
+
+
+
+
